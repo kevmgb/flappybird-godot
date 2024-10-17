@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8g2huga66x4a"]
+
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_gfn81"]
+[ext_resource type="Texture2D" uid="uid://cr3e2h77d6m6" path="res://Assets/sprites/yellowbird-upflap.png" id="1_mx2p4"]
+[ext_resource type="Texture2D" uid="uid://dsr6l10h7as3c" path="res://Assets/sprites/yellowbird-midflap.png" id="2_12rhe"]
+[ext_resource type="Texture2D" uid="uid://162la17sodm" path="res://Assets/sprites/yellowbird-downflap.png" id="3_bw0ms"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_482rx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mx2p4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_12rhe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bw0ms")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jgous"]
+radius = 13.0
+height = 46.0
+
+[node name="Player" type="RigidBody2D"]
+position = Vector2(32, 381)
+script = ExtResource("1_gfn81")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_482rx")
+animation = &"idle"
+frame_progress = 0.354001
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_jgous")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dvfj2y7br0wyf"
+path="res://.godot/imported/House In a Forest Loop.ogg-18785c1e61854b1f71d27736c3fea639.oggvorbisstr"
+
+[deps]
+
+source_file="res://TutorialAssets/art/House In a Forest Loop.ogg"
+dest_files=["res://.godot/imported/House In a Forest Loop.ogg-18785c1e61854b1f71d27736c3fea639.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

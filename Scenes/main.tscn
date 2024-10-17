@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://f446bnd60am0"]
+
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_mh1c2"]
+[ext_resource type="PackedScene" uid="uid://cwukrn4j1rcki" path="res://Scenes/pipe.tscn" id="2_agpjj"]
+[ext_resource type="PackedScene" uid="uid://b8g2huga66x4a" path="res://Scenes/player.tscn" id="3_jweyx"]
+
+[sub_resource type="Curve2D" id="Curve2D_37vof"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 480, 720, 0, 0, 0, 0, 0, 720)
+}
+point_count = 2
+
+[node name="Main" type="Node"]
+script = ExtResource("1_mh1c2")
+mob_scene = ExtResource("2_agpjj")
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(70, 332)
+
+[node name="PipePath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_37vof")
+
+[node name="PipeSpawnLocation" type="PathFollow2D" parent="PipePath"]
+position = Vector2(480, 720)
+rotation = 3.14159
+
+[node name="Player" parent="." instance=ExtResource("3_jweyx")]
+
+[node name="PipeSpawnTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="timeout" from="PipeSpawnTimer" to="." method="_on_pipe_spawn_timer_timeout"]
